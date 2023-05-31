@@ -6,7 +6,7 @@
     "plugin:prettier/recommended",
     "plugin:import/recommended"
   ],
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "eslint-plugin-import-helpers"],
   "env": {
     "browser": true,
     "es6": true,
@@ -32,6 +32,39 @@
       {
         "endOfLine": "auto"
       }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^next|react/",
+          "/^~/utils/",
+          "/^~/contexts/",
+          "/^~/hooks/",
+          "/^~/services/",
+          "/^~/components/",
+          "/^~/interfaces/",
+          "/^~/types/",
+          "/^~/constants/",
+          "/^~/styles/",
+          "/^~/modules/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
