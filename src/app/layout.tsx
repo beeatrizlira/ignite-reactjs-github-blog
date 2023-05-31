@@ -1,6 +1,8 @@
-import { Inter } from "next/font/google";
+import "@/styles/globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Playfair_Display } from "next/font/google";
+
+const font = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -14,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }
