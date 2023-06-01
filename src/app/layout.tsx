@@ -1,7 +1,9 @@
 import { Header } from "@/components/Header";
-import "@/styles/globals.scss";
 
+import "@/styles/globals.scss";
 import { Nunito } from "next/font/google";
+
+import styles from "./styles.module.scss";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -17,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={`${font.className} ${styles.app}`}>
         <Header />
         {children}
       </body>

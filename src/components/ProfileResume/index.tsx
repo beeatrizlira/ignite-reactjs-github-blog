@@ -33,39 +33,39 @@ export const ProfileResume = ({ data }: ProfileResumeProps) => {
   } = data;
 
   return (
-    <CardContainer>
-      <div className={styles["profile-resume-container"]}>
-        <div>
-          <Image src={logo} alt="" width={148} height={148} />
-        </div>
-
+    <article className={styles["profile-resume-container"]}>
+      <CardContainer>
         <div className={styles["profile-resume-content"]}>
-          <div className={styles.flex}>
-            <h1>{name}</h1>
-            <div>
-              <a href={profileUrl} target="_blank">
-                GITHUB <Image src={linkIcon} alt="" />
-              </a>
-            </div>
+          <div>
+            <Image src={logo} alt="" width={148} height={148} />
           </div>
-          <p>{description}</p>
-
-          <div className={styles.info}>
-            <div>
-              <Image src={githubIcon} alt="" />
-              <span>{user}</span>
+          <div className={styles["profile-resume-info"]}>
+            <div className={styles.flex}>
+              <h1>{name}</h1>
+              <div>
+                <a href={profileUrl} target="_blank">
+                  GITHUB <Image src={linkIcon} alt="" />
+                </a>
+              </div>
             </div>
-            <div>
-              <Image src={companyIcon} alt="" />
-              <span>{company}</span>
-            </div>
-            <div>
-              <Image src={followersIcon} alt="" />
-              <span>{followersCount} seguidores</span>
+            <p>{description}</p>
+            <div className={styles.info}>
+              <div>
+                <Image src={githubIcon} alt="" />
+                <span>{user}</span>
+              </div>
+              <div>
+                <Image src={companyIcon} alt="" />
+                <span>{company}</span>
+              </div>
+              <div>
+                <Image src={followersIcon} alt="" />
+                <span>{followersCount} seguidores</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </CardContainer>
+      </CardContainer>
+    </article>
   );
 };
