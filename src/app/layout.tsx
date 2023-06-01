@@ -1,9 +1,9 @@
 import { Header } from "@/components/Header";
 import "@/styles/globals.scss";
 
-import { Playfair_Display } from "next/font/google";
+import { Nunito } from "next/font/google";
 
-const font = Playfair_Display({ subsets: ["latin"] });
+const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
