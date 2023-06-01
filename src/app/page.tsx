@@ -1,4 +1,5 @@
 import { ProfileResume } from "@/components/ProfileResume";
+import { SearchForm } from "@/components/SearchForm";
 
 const data = {
   name: "Beatriz",
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <main>
       <ProfileResume data={data} />
+      <SearchForm />
     </main>
   );
 }

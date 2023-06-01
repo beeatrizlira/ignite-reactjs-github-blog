@@ -1,0 +1,61 @@
+.searchFormContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4.5rem;
+
+  div {
+    &:first-child {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+
+      span {
+        line-height: 160%;
+
+        &:first-child {
+          color: var(--base-subtitle);
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+
+        &:last-child {
+          color: var(--base-span);
+          font-size: 0.875rem;
+        }
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      position: relative;
+
+      input {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--base-input);
+        border: 1px solid var(--base-border);
+        color: var(--base-subtitle);
+        border-radius: 6px;
+        outline: none;
+
+        &::placeholder {
+          color: var(--base-label);
+        }
+
+        &:active,
+        &:focus,
+        &:focus-visible {
+          border: 1px solid var(--blue);
+        }
+      }
+
+      button {
+        cursor: pointer;
+        background: transparent;
+        position: absolute;
+        right: 15px;
+        top: 25%;
+      }
+    }
+  }
+}

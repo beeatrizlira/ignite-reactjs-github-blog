@@ -2,6 +2,7 @@
   "extends": ["stylelint-prettier/recommended",  "stylelint-config-standard",
   "stylelint-config-prettier"],
   "rules": {
-    "import-notation": "string"
+    "import-notation": "string",
+    "selector-class-pattern": null
   }
 }

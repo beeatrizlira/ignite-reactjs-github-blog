@@ -5,4 +5,6 @@
   box-shadow: 0 2px 28px rgb(0 0 0 / 20%);
   border-radius: 10px;
   width: fit-content;
+  position: relative;
+  z-index: 10;
 }
