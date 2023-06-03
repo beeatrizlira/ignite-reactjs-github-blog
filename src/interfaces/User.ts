@@ -3,7 +3,7 @@ export interface UserData {
   bio: string;
   followers: number;
   company: string;
-  url: string;
+  html_url: string;
   name: string;
   login: string;
 }

@@ -14,7 +14,7 @@ interface ProfileResumeProps {
 }
 
 export const ProfileResume = ({ data }: ProfileResumeProps) => {
-  const { company, bio, followers, avatar_url, login, name, url } = data;
+  const { company, bio, followers, avatar_url, login, name, html_url } = data;
 
   return (
     <article className={styles["profile-resume-container"]}>
@@ -27,7 +27,7 @@ export const ProfileResume = ({ data }: ProfileResumeProps) => {
             <div className={styles.flex}>
               <h1>{name}</h1>
               <div>
-                <a href={url} target="_blank">
+                <a href={html_url} target="_blank">
                   GITHUB <Image src={linkIcon} alt="" />
                 </a>
               </div>
