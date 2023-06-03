@@ -11,7 +11,7 @@ import { CardContainer } from "../CardContainer";
 import styles from "./styles.module.scss";
 
 export const PostCard = ({ data }: PostCardProps) => {
-  const { body, created_at, title } = data;
+  const { body, created_at, title, number } = data;
 
   const actualDate = new Date();
   const postdate = new Date(created_at);

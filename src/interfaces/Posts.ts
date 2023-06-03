@@ -2,6 +2,7 @@ export interface Posts {
   title: string;
   body: string;
   created_at: string;
+  number: number;
 }
 
 export interface Post {
