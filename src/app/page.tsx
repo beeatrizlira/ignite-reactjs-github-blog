@@ -1,18 +1,11 @@
+"use client";
 import { PostCard } from "@/components/PostCard";
 import { ProfileResume } from "@/components/ProfileResume";
 import { SearchForm } from "@/components/SearchForm";
+import { UserData } from "@/interfaces/User";
+import { GithubBlogAPI } from "@/services/api";
 
-const data = {
-  name: "Beatriz",
-  description:
-    "Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.",
-  user: "beatriizx",
-  company: "Skeelo",
-  followersCount: 32,
-  imgHref: "../../assets/logo.svg",
-  profileUrl:
-    "https://efficient-sloth-d85.notion.site/Desafio-03-Github-Blog-13593953670346908462ddc648d42cf1",
-};
+import { useEffect, useState } from "react";
 
 const posts = [
   {
@@ -60,9 +53,21 @@ const posts = [
 ];
 
 export default function Home() {
+  const githubBlogApi = new GithubBlogAPI();
+  const [userData, setUserData] = useState({} as UserData);
+
+  const retrieveUserData = async () => {
+    const { data } = await githubBlogApi.getUserData();
+    setUserData(data);
+  };
+
+  useEffect(() => {
+    retrieveUserData();
+  }, []);
+
   return (
     <main>
-      <ProfileResume data={data} />
+      <ProfileResume data={userData} />
       <SearchForm />
       <article>
         {posts.map((post) => (

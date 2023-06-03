@@ -25,7 +25,10 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "rules": {
+  "rules": { 
+    "@typescript-eslint/no-explicit-any": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/naming-convention": "off",
     "linebreak-style": "off",
     "prettier/prettier": [
       "error",

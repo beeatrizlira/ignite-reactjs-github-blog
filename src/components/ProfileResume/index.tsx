@@ -2,7 +2,7 @@ import companyIcon from "@/assets/icons/company-icon.svg";
 import followersIcon from "@/assets/icons/followers-icon.svg";
 import githubIcon from "@/assets/icons/github-icon.svg";
 import linkIcon from "@/assets/icons/link-icon.svg";
-import logo from "@/assets/logo.svg";
+import { UserData } from "@/interfaces/User";
 
 import Image from "next/image";
 
@@ -10,49 +10,33 @@ import { CardContainer } from "../CardContainer";
 import styles from "./styles.module.scss";
 
 interface ProfileResumeProps {
-  data: {
-    name: string;
-    description: string;
-    user: string;
-    company: string;
-    followersCount: number;
-    imgHref: string;
-    profileUrl: string;
-  };
+  data: UserData;
 }
 
 export const ProfileResume = ({ data }: ProfileResumeProps) => {
-  const {
-    company,
-    description,
-    followersCount,
-    imgHref,
-    name,
-    user,
-    profileUrl,
-  } = data;
+  const { company, bio, followers, avatar_url, login, name, url } = data;
 
   return (
     <article className={styles["profile-resume-container"]}>
       <CardContainer>
         <div className={styles["profile-resume-content"]}>
           <div>
-            <Image src={logo} alt="" width={148} height={148} />
+            <Image src={avatar_url} alt="" width={148} height={148} />
           </div>
           <div className={styles["profile-resume-info"]}>
             <div className={styles.flex}>
               <h1>{name}</h1>
               <div>
-                <a href={profileUrl} target="_blank">
+                <a href={url} target="_blank">
                   GITHUB <Image src={linkIcon} alt="" />
                 </a>
               </div>
             </div>
-            <p>{description}</p>
+            <p>{bio}</p>
             <div className={styles.info}>
               <div>
                 <Image src={githubIcon} alt="" />
-                <span>{user}</span>
+                <span>{login}</span>
               </div>
               <div>
                 <Image src={companyIcon} alt="" />
@@ -60,7 +44,7 @@ export const ProfileResume = ({ data }: ProfileResumeProps) => {
               </div>
               <div>
                 <Image src={followersIcon} alt="" />
-                <span>{followersCount} seguidores</span>
+                <span>{followers} seguidores</span>
               </div>
             </div>
           </div>
