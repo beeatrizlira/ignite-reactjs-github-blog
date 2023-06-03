@@ -1,6 +1,8 @@
 import { Header } from "@/components/Header";
 
 import "@/styles/globals.scss";
+import { PostsProvider } from "@/contexts/PostsContext";
+
 import { Nunito } from "next/font/google";
 
 import styles from "./styles.module.scss";
@@ -21,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${font.className} ${styles.app}`}>
         <Header />
-        {children}
+        <PostsProvider>{children}</PostsProvider>
       </body>
     </html>
   );

@@ -1,7 +1,9 @@
 "use client";
 import searchIcon from "@/assets/icons/search-icon.svg";
+import { PostsContext } from "@/contexts/PostsContext";
 
 import Image from "next/image";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import styles from "./styles.module.scss";
@@ -16,11 +18,16 @@ export const SearchForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<SearchFormInputs>();
 
+  const { posts } = useContext(PostsContext);
+  const postsCount = posts.length;
+
   return (
     <form className={styles.searchFormContainer}>
       <div>
         <span>Publicações</span>
-        <span>6 publicações</span>
+        <span>
+          {postsCount} {postsCount === 1 ? "publicação" : "publicações"}
+        </span>
       </div>
 
       <div>
