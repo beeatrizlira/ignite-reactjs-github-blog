@@ -17,9 +17,6 @@ class Service {
   config: Params = {
     baseUrl: "https://api.github.com",
     method: "get",
-    headers: {
-      authorization: "token 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",
-    },
   };
 
   get = async (endpoint: string, requestParams?: any): Promise<any> => {
