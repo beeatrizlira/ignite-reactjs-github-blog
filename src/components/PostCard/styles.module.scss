@@ -1,0 +1,28 @@
+.postContainer {
+  width: calc(416px - 2rem);
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      color: var(--base-span);
+      font-size: 0.875rem;
+      align-self: flex-start;
+      margin-top: 0.3rem;
+    }
+  }
+
+  h1 {
+    color: var(--base-title);
+    font-size: 1.25rem;
+    line-height: 160%;
+    max-width: 280px;
+  }
+
+  p {
+    color: var(--base-text);
+    line-height: 160%;
+  }
+}

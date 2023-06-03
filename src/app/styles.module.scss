@@ -3,10 +3,18 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--base-background-300);
+  padding-bottom: 14rem;
 
   article {
-    &:first-of-type {
+    &:nth-child(1) {
       margin-top: -5rem;
+    }
+
+    &:last-of-type {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
     }
   }
 }
