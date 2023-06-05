@@ -10,12 +10,18 @@
     &:nth-child(1) {
       margin-top: -5rem;
     }
+  }
 
-    &:nth-child(3) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 }

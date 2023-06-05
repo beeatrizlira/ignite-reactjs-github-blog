@@ -19,7 +19,7 @@ export const SearchForm = () => {
   } = useForm<SearchFormInputs>();
 
   const { posts, retrievePosts } = useContext(PostsContext);
-  const postsCount = posts.length;
+  // const postsCount = posts.length;
 
   const onSubmit = async (data: SearchFormInputs) => {
     retrievePosts(data.query);
@@ -33,7 +33,7 @@ export const SearchForm = () => {
       <div>
         <span>Publicações</span>
         <span>
-          {postsCount} {postsCount === 1 ? "publicação" : "publicações"}
+          {/* {postsCount} {postsCount === 1 ? "publicação" : "publicações"} */}
         </span>
       </div>
 
