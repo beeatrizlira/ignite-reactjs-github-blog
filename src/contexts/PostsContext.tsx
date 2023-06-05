@@ -14,7 +14,7 @@ import {
 
 interface TransactionContextType {
   posts: Posts[];
-  retrievePosts: () => Promise<void>;
+  retrievePosts: (query: string) => Promise<void>;
   retrievePostByNumber: (number: string) => Promise<any>;
 }
 export const PostsContext = createContext({} as TransactionContextType);
@@ -23,8 +23,8 @@ export function PostsProvider({ children }: { children: ReactNode }) {
   const githubBlogApi = new GithubBlogAPI();
   const [posts, setPosts] = useState<Posts[]>([]);
 
-  const retrievePosts = useCallback(async () => {
-    const { data } = await githubBlogApi.getPosts();
+  const retrievePosts = useCallback(async (query = "") => {
+    const { data } = await githubBlogApi.getPosts(query);
     setPosts(data.items);
   }, []);
 

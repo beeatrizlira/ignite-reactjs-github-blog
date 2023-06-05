@@ -8,9 +8,8 @@ export class GithubBlogAPI {
     return Service.get(endpoint);
   };
 
-  getPosts = async (): Promise<AxiosResponse<any, any>> => {
-    const endpoint =
-      "search/issues?q=is:issue repo:beeatrizlira/ignite-reactjs-github-blog";
+  getPosts = async (query = ""): Promise<AxiosResponse<any, any>> => {
+    const endpoint = `search/issues?q=${query}is:issue repo:beeatrizlira/ignite-reactjs-github-blog`;
     return Service.get(endpoint);
   };
 

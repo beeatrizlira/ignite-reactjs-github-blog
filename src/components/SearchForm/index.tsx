@@ -15,14 +15,21 @@ export const SearchForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = useForm<SearchFormInputs>();
 
-  const { posts } = useContext(PostsContext);
+  const { posts, retrievePosts } = useContext(PostsContext);
   const postsCount = posts.length;
 
+  const onSubmit = async (data: SearchFormInputs) => {
+    retrievePosts(data.query);
+  };
+
   return (
-    <form className={styles.searchFormContainer}>
+    <form
+      className={styles.searchFormContainer}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div>
         <span>Publicações</span>
         <span>
@@ -36,7 +43,7 @@ export const SearchForm = () => {
           {...register("query")}
           placeholder="Buscar counteúdo"
         />
-        <button>
+        <button type="submit" disabled={isSubmitting}>
           <Image src={searchIcon} alt="" width={20} height={20} />
         </button>
       </div>
