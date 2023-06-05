@@ -3,14 +3,13 @@ import { PostCard } from "@/components/PostCard";
 import { ProfileResume } from "@/components/ProfileResume";
 import { SearchForm } from "@/components/SearchForm";
 import { PostsContext } from "@/contexts/PostsContext";
-import { Posts } from "@/interfaces/Posts";
 import { UserData } from "@/interfaces/User";
 import { GithubBlogAPI } from "@/services/api";
 
 import { useContext, useEffect, useState } from "react";
 
 export default function Home() {
-  const { posts } = useContext(PostsContext);
+  const { posts, retrievePosts } = useContext(PostsContext);
   const githubBlogApi = new GithubBlogAPI();
   const [userData, setUserData] = useState({} as UserData);
 
@@ -21,6 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     retrieveUserData();
+    retrievePosts();
   }, []);
 
   return (
