@@ -6,6 +6,7 @@ export interface Posts {
 }
 
 export interface Post {
+  body: string;
   title: string;
   html_url: string;
   created_at: string;
