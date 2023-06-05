@@ -5,6 +5,7 @@ interface PostCardProps {
 import { Posts } from "@/interfaces/Posts";
 import { Utils } from "@/utils/utils";
 
+import Link from "next/link";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 import { CardContainer } from "../CardContainer";
@@ -22,7 +23,9 @@ export const PostCard = ({ data }: PostCardProps) => {
     <CardContainer>
       <div className={styles.postContainer}>
         <div className={styles.info}>
-          <h1>{title}</h1>
+          <Link href={`/post/${number}`}>
+            <h1>{title}</h1>
+          </Link>
           <span>
             Há {date} {date === 1 ? "Dia" : "Dias"}
           </span>
@@ -32,6 +35,9 @@ export const PostCard = ({ data }: PostCardProps) => {
           <ReactMarkdown>{body}</ReactMarkdown>
         </div>
       </div>
+      <Link href={`/post/${number}`} className={styles.postLink}>
+        Ver post completo
+      </Link>
     </CardContainer>
   );
 };

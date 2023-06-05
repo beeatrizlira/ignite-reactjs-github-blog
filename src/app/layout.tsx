@@ -1,5 +1,4 @@
 import { Header } from "@/components/Header";
-
 import "@/styles/globals.scss";
 import { PostsProvider } from "@/contexts/PostsContext";
 
@@ -23,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${font.className} ${styles.app}`}>
         <Header />
-        <PostsProvider>{children}</PostsProvider>
+        <main>
+          <PostsProvider>{children}</PostsProvider>
+        </main>
       </body>
     </html>
   );

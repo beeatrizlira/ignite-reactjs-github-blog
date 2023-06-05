@@ -5,12 +5,13 @@
   background-color: var(--base-background-300);
   padding-bottom: 14rem;
 
-  article {
+  article,
+  section {
     &:nth-child(1) {
       margin-top: -5rem;
     }
 
-    &:last-of-type {
+    &:nth-child(3) {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
