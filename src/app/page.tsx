@@ -1,4 +1,5 @@
 "use client";
+import noResults from "@/assets/no-results.png";
 import { PostCard } from "@/components/PostCard";
 import { ProfileResume } from "@/components/ProfileResume";
 import { ProfileResumeSkeleton } from "@/components/ProfileResume/ProfileResumeSkeleton";
@@ -7,8 +8,11 @@ import { PostsContext } from "@/contexts/PostsContext";
 import { UserData } from "@/interfaces/User";
 import { GithubBlogAPI } from "@/services/api";
 
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
+
+import styles from "./styles.module.scss";
 
 export default function Home() {
   const { posts, retrievePosts, isSearching } = useContext(PostsContext);
@@ -45,7 +49,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <div className={styles.container}>
       {isLoading ? (
         <ProfileResumeSkeleton />
       ) : (
@@ -63,7 +67,14 @@ export default function Home() {
                 </li>
               ))}
         </ul>
+
+        {posts.length === 0 && !isSearching && (
+          <div className={styles.notFound}>
+            <Image src={noResults} alt="" />
+            <p>Nenhum resultado encontrado</p>
+          </div>
+        )}
       </article>
-    </main>
+    </div>
   );
 }
