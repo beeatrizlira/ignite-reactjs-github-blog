@@ -6,13 +6,12 @@ import { SearchForm } from "@/components/SearchForm";
 import { PostsContext } from "@/contexts/PostsContext";
 import { UserData } from "@/interfaces/User";
 import { GithubBlogAPI } from "@/services/api";
-import "react-loading-skeleton/dist/skeleton.css";
 
 import { useContext, useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
-  const { posts, retrievePosts } = useContext(PostsContext);
+  const { posts, retrievePosts, isSearching } = useContext(PostsContext);
   const githubBlogApi = new GithubBlogAPI();
   const [userData, setUserData] = useState({} as UserData);
   const [isLoading, setIsloading] = useState(true);
@@ -37,12 +36,12 @@ export default function Home() {
 
   const handleFetchData = async () => {
     await retrieveUserData();
-    await retrievePosts();
     setIsloading(false);
   };
 
   useEffect(() => {
     handleFetchData();
+    retrievePosts();
   }, []);
 
   return (
@@ -56,7 +55,7 @@ export default function Home() {
       <SearchForm />
       <article>
         <ul>
-          {isLoading
+          {isSearching
             ? PostsSkeleton
             : posts.map((post) => (
                 <li key={post.number}>

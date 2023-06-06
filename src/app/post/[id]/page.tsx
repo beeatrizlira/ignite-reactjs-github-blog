@@ -7,6 +7,7 @@ import { CardContainer } from "@/components/CardContainer";
 import { PostsContext } from "@/contexts/PostsContext";
 import { Post as PostType } from "@/interfaces/Posts";
 import { Utils } from "@/utils/utils";
+import { Spinner } from "Spinner";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +19,7 @@ import styles from "./styles.module.scss";
 
 export default function Post() {
   const [postData, setPostData] = useState({} as PostType);
+  const [isLoading, setIsLoading] = useState(true);
   const { title, comments, created_at, html_url, user, body } = postData;
   const { retrievePostByNumber } = useContext(PostsContext);
   const params = useParams();
@@ -27,13 +29,16 @@ export default function Post() {
   const retrievePostData = async () => {
     const data = await retrievePostByNumber(id);
     setPostData(data);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     retrievePostData();
   }, []);
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <article className={styles.container}>
       <CardContainer>
         <div className={styles.header}>
@@ -66,7 +71,6 @@ export default function Post() {
           </div>
         </div>
       </CardContainer>
-
       <div className={styles.content}>
         <ReactMarkdown>{body}</ReactMarkdown>
       </div>

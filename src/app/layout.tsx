@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import "@/styles/globals.scss";
+import "react-loading-skeleton/dist/skeleton.css";
 import { PostsProvider } from "@/contexts/PostsContext";
 
 import { Nunito } from "next/font/google";
