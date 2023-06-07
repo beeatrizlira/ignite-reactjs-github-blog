@@ -5,15 +5,15 @@ import linkIcon from "@/assets/icons/link-icon.svg";
 import { UserData } from "@/interfaces/User";
 
 import Image from "next/image";
+import { memo } from "react";
 
 import { CardContainer } from "../CardContainer";
 import styles from "./styles.module.scss";
-
 interface ProfileResumeProps {
   data: UserData;
 }
 
-export const ProfileResume = ({ data }: ProfileResumeProps) => {
+const ProfileResumeComponent = ({ data }: ProfileResumeProps) => {
   const { company, bio, followers, avatar_url, login, name, html_url } = data;
 
   return (
@@ -53,3 +53,5 @@ export const ProfileResume = ({ data }: ProfileResumeProps) => {
     </article>
   );
 };
+
+export const ProfileResume = memo(ProfileResumeComponent);

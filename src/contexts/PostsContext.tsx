@@ -14,9 +14,10 @@ import {
 
 interface TransactionContextType {
   posts: Posts[];
-  retrievePosts: (query?: string) => Promise<void>;
+  retrievePosts: (query: string, page?: number) => Promise<void>;
   retrievePostByNumber: (number: string) => Promise<any>;
   isSearching: boolean;
+  totalCount: number;
 }
 export const PostsContext = createContext({} as TransactionContextType);
 
@@ -24,11 +25,13 @@ export function PostsProvider({ children }: { children: ReactNode }) {
   const githubBlogApi = new GithubBlogAPI();
   const [posts, setPosts] = useState<Posts[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
 
-  const retrievePosts = useCallback(async (query?: string) => {
+  const retrievePosts = useCallback(async (query?: string, page = 1) => {
     setIsSearching(true);
-    const { data } = await githubBlogApi.getPosts(query);
+    const { data } = await githubBlogApi.getPosts(query, page);
     setPosts(data.items);
+    setTotalCount(data.total_count);
     setIsSearching(false);
   }, []);
 
@@ -46,6 +49,7 @@ export function PostsProvider({ children }: { children: ReactNode }) {
         posts,
         retrievePosts,
         retrievePostByNumber,
+        totalCount,
       }}
     >
       {children}

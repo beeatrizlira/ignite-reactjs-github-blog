@@ -52,6 +52,12 @@
     max-width: 864px;
     color: var(--base-text);
 
+    pre {
+      background-color: var(--base-post);
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
     ol {
       display: flex;
       flex-direction: column;

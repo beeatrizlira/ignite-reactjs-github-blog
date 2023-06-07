@@ -1,5 +1,6 @@
 "use client";
 import noResults from "@/assets/no-results.png";
+import { Paginator } from "@/components/Paginator";
 import { PostCard } from "@/components/PostCard";
 import { ProfileResume } from "@/components/ProfileResume";
 import { ProfileResumeSkeleton } from "@/components/ProfileResume/ProfileResumeSkeleton";
@@ -15,17 +16,24 @@ import Skeleton from "react-loading-skeleton";
 import styles from "./styles.module.scss";
 
 export default function Home() {
-  const { posts, retrievePosts, isSearching } = useContext(PostsContext);
+  const { posts, retrievePosts, isSearching, totalCount } =
+    useContext(PostsContext);
   const githubBlogApi = new GithubBlogAPI();
   const [userData, setUserData] = useState({} as UserData);
   const [isLoading, setIsloading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const retrieveUserData = async () => {
     const { data } = await githubBlogApi.getUserData();
+
     setUserData(data);
   };
 
-  const PostsSkeleton = Array(6)
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const PostsSkeleton = Array(4)
     .fill("")
     .map((item, index) => (
       <li key={index} style={{ opacity: 0.3 }}>
@@ -45,8 +53,11 @@ export default function Home() {
 
   useEffect(() => {
     handleFetchData();
-    retrievePosts();
   }, []);
+
+  useEffect(() => {
+    retrievePosts("", currentPage);
+  }, [currentPage]);
 
   return (
     <div className={styles.container}>
@@ -75,6 +86,13 @@ export default function Home() {
           </div>
         )}
       </article>
+
+      <Paginator
+        items_per_page={4}
+        total_items={totalCount}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }

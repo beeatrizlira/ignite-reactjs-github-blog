@@ -4,10 +4,10 @@ import commentsIcon from "@/assets/icons/comments-icon.svg";
 import githubIcon from "@/assets/icons/github-icon.svg";
 import linkIcon from "@/assets/icons/link-icon.svg";
 import { CardContainer } from "@/components/CardContainer";
+import { Spinner } from "@/components/Spinner";
 import { PostsContext } from "@/contexts/PostsContext";
 import { Post as PostType } from "@/interfaces/Posts";
 import { Utils } from "@/utils/utils";
-import { Spinner } from "Spinner";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -28,6 +28,7 @@ export default function Post() {
 
   const retrievePostData = async () => {
     const data = await retrievePostByNumber(id);
+
     setPostData(data);
     setIsLoading(false);
   };

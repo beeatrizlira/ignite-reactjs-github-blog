@@ -26,9 +26,7 @@ export const PostCard = ({ data }: PostCardProps) => {
           <Link href={`/post/${number}`}>
             <h1>{title}</h1>
           </Link>
-          <span>
-            Há {date} {date === 1 ? "Dia" : "Dias"}
-          </span>
+          <span>{`Há ${date} ${date === 1 ? "Dia" : "Dias"}`}</span>
         </div>
 
         <div className={styles.content}>

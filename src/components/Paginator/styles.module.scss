@@ -1,0 +1,22 @@
+.container {
+  color: var(--base-title);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+
+  button {
+    background: none;
+    color: var(--base-text);
+    font-weight: 700;
+    border: 1px solid var(--base-border);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+
+    &.active {
+      background-color: var(--base-title);
+      color: var(--blue);
+      border-radius: 4px;
+    }
+  }
+}
