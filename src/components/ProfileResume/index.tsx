@@ -20,32 +20,31 @@ const ProfileResumeComponent = ({ data }: ProfileResumeProps) => {
     <article className={styles["profile-resume-container"]}>
       <CardContainer>
         <div className={styles["profile-resume-content"]}>
-          <div>
+          <div className={styles.image}>
             <Image src={avatar_url} alt="" width={148} height={148} />
           </div>
-          <div className={styles["profile-resume-info"]}>
-            <div className={styles.flex}>
-              <h1>{name}</h1>
-              <div>
-                <a href={html_url} target="_blank">
-                  GITHUB <Image src={linkIcon} alt="" />
-                </a>
-              </div>
+
+          <div className={styles.flex}>
+            <h1>{name}</h1>
+            <div>
+              <a href={html_url} target="_blank">
+                GITHUB <Image src={linkIcon} alt="" />
+              </a>
             </div>
-            <p>{bio}</p>
-            <div className={styles.info}>
-              <div>
-                <Image src={githubIcon} alt="" />
-                <span>{login}</span>
-              </div>
-              <div>
-                <Image src={companyIcon} alt="" />
-                <span>{company}</span>
-              </div>
-              <div>
-                <Image src={followersIcon} alt="" />
-                <span>{followers} seguidores</span>
-              </div>
+          </div>
+          <p className={styles.bio}>{bio}</p>
+          <div className={styles.info}>
+            <div>
+              <Image src={githubIcon} alt="" />
+              <span>{login}</span>
+            </div>
+            <div>
+              <Image src={companyIcon} alt="" />
+              <span>{company}</span>
+            </div>
+            <div>
+              <Image src={followersIcon} alt="" />
+              <span>{followers} seguidores</span>
             </div>
           </div>
         </div>
