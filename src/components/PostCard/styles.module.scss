@@ -1,6 +1,6 @@
 .postContainer {
-  width: calc(416px - 2rem);
   height: calc(260px - 4rem);
+  max-width: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -66,4 +66,10 @@
   color: var(--blue);
   font-size: 0.875rem;
   margin-top: 1rem;
+}
+
+@media screen and (width >= 900px) {
+  .postContainer {
+    width: calc(416px - 2rem);
+  }
 }

@@ -26,10 +26,24 @@
   }
 
   ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    margin-top: 3rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      > div {
+        padding: 1rem;
+      }
+    }
   }
 
   .notFound {
@@ -53,6 +67,21 @@
       width: 200px;
       height: auto;
       margin-bottom: 1rem;
+    }
+  }
+}
+
+@media screen and (width >= 900px) {
+  .app {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      li {
+        > div {
+          padding: 2rem;
+        }
+      }
     }
   }
 }
