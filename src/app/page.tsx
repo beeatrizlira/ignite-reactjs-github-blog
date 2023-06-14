@@ -1,5 +1,5 @@
 "use client";
-import noResults from "@/assets/no-results.png";
+import noResults from "@/assets/images/no-results.png";
 import { Paginator } from "@/components/Paginator";
 import { PostCard } from "@/components/PostCard";
 import { ProfileResume } from "@/components/ProfileResume";
