@@ -13,7 +13,7 @@ Essa aplicação é o terceiro desafio do curso Ignite React da Rocketseat. O ob
 
 ```bash
   # Clone o repositório
-  $ git clone git@github.com:beatriizx/ignite-reactjs-to-do-list
+  $ git clone https://github.com/beeatrizlira/ignite-reactjs-github-blog.git
 
   # Instale as dependências
   $ yarn install ou npm install
