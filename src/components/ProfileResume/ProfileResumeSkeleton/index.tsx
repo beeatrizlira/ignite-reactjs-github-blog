@@ -10,38 +10,18 @@ export const ProfileResumeSkeleton = () => {
         <div className={styles.container}>
           <Skeleton
             baseColor="#3A536B"
+            className={styles.skeleton}
             style={{
               width: "148px",
               height: "148px",
               opacity: 0.3,
+              maxWidth: "100%",
             }}
           />
           <div>
-            <Skeleton
-              baseColor="#3A536B"
-              style={{
-                width: "200px",
-                height: "30px",
-                opacity: 0.3,
-              }}
-            />
-
-            <Skeleton
-              baseColor="#3A536B"
-              style={{
-                width: "600px",
-                height: "50px",
-                opacity: 0.3,
-              }}
-            />
-            <Skeleton
-              baseColor="#3A536B"
-              style={{
-                opacity: 0.3,
-                width: "300px",
-                height: "18px",
-              }}
-            />
+            <Skeleton baseColor="#3A536B" className={styles.skeleton} />
+            <Skeleton baseColor="#3A536B" className={styles.skeleton} />
+            <Skeleton baseColor="#3A536B" className={styles.skeleton} />
           </div>
         </div>
       </CardContainer>
