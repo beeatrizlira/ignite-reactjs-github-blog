@@ -1,6 +1,6 @@
 # 📖 Sobre
 
-Essa aplicação é o terceiro desafio do curso Ignite React da Rocketseat. O objetivo é um blog onde os posts são issues de um repósitório do Github, na aplicação é possivel pesquisar posts, ler um post completo e visualizar os detalhes do perfil do dono do repositório.
+Essa aplicação é o terceiro desafio do curso Ignite React da Rocketseat. O objetivo é um blog onde os posts são issues de um repósitório do Github, na aplicação é possivel pesquisar um post especifícico, ler um post completo e visualizar os detalhes do perfil do dono do repositório.
 
 ### 🚀 Tecnologias
 
