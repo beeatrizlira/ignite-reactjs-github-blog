@@ -34,14 +34,15 @@
     justify-content: center;
     margin-top: 2rem;
 
-    li {
+    .postCard {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
+      min-height: 292px;
+      width: 90vw;
 
       > div {
-        padding: 1rem;
+        padding: 1.5rem;
       }
     }
   }
@@ -53,7 +54,7 @@
     justify-content: center;
 
     p {
-      font-size: 2rem;
+      font-size: 1rem;
       color: var(--base-title);
       font-weight: bold;
     }
@@ -64,7 +65,7 @@
     }
 
     img {
-      width: 200px;
+      width: 100px;
       height: auto;
       margin-bottom: 1rem;
     }
@@ -73,11 +74,23 @@
 
 @media screen and (width >= 900px) {
   .app {
+    .notFound {
+      img {
+        width: 200px;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    }
+
     ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
 
-      li {
+      .postCard {
+        width: 416px;
+
         > div {
           padding: 2rem;
         }

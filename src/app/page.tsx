@@ -38,8 +38,7 @@ export default function Home() {
     .map((item, index) => (
       <li key={index} style={{ opacity: 0.3 }}>
         <Skeleton
-          width="448px"
-          height="292px"
+          className={styles.postCard}
           baseColor="#3A536B"
           style={{ opacity: 0.3 }}
         />
@@ -70,10 +69,10 @@ export default function Home() {
       <SearchForm />
       <article>
         <ul>
-          {isSearching
+          {isSearching || isLoading
             ? PostsSkeleton
             : posts.map((post) => (
-                <li key={post.number}>
+                <li key={post.number} className={styles.postCard}>
                   <PostCard data={post} />
                 </li>
               ))}

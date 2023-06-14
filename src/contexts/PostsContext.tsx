@@ -1,4 +1,5 @@
 "use client";
+
 import { Posts } from "@/interfaces/Posts";
 import { GithubBlogAPI } from "@/services/api";
 import { AxiosResponse } from "axios";
@@ -28,11 +29,16 @@ export function PostsProvider({ children }: { children: ReactNode }) {
   const [totalCount, setTotalCount] = useState(0);
 
   const retrievePosts = useCallback(async (query?: string, page = 1) => {
-    setIsSearching(true);
-    const { data } = await githubBlogApi.getPosts(query, page);
-    setPosts(data.items);
-    setTotalCount(data.total_count);
-    setIsSearching(false);
+    try {
+      setIsSearching(true);
+      const { data } = await githubBlogApi.getPosts(query, page);
+      setPosts(data.items);
+      setTotalCount(data.total_count);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSearching(false);
+    }
   }, []);
 
   const retrievePostByNumber = useCallback(async (number: string) => {
