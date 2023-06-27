@@ -10,6 +10,7 @@
     max-width: 1000px;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .container {
@@ -39,7 +40,8 @@
       align-items: center;
       justify-content: center;
       min-height: 292px;
-      width: 90vw;
+      min-width: 70vw;
+      width: fit-content;
 
       > div {
         padding: 1.5rem;
@@ -90,6 +92,7 @@
 
       .postCard {
         width: 416px;
+        min-width: unset;
 
         > div {
           padding: 2rem;
