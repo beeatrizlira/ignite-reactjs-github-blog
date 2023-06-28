@@ -38,7 +38,7 @@ export const Paginator = ({
           <button
             className={currentPage === index + 1 ? styles.active : ""}
             onClick={() => onPageChange(index + 1)}
-            key={_}
+            key={index}
           >
             {index + 1}
           </button>
